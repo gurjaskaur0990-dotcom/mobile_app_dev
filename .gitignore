@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-emulator/
+functions/lib/
+.env*
+!.env.example
+.firebase/
+*.log
+*.tsbuildinfo
+test-results/
+playwright-report/
+.DS_Store
+.emulator-data/
+.flutter-emulator-data/
+android/app/google-services.json
