@@ -1,0 +1,579 @@
+:root {
+  --bg: #f5f6f1;
+  --surface: #fff;
+  --ink: #172d25;
+  --muted: #52645c;
+  --line: #d9e1d9;
+  --sage: #deebd9;
+  --accent: #315e47;
+  --ion-background-color: var(--bg);
+  --ion-text-color: var(--ink);
+  --ion-font-family:
+    Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color-scheme: light;
+  font-family: var(--ion-font-family);
+  color: var(--ink);
+  background: var(--bg);
+}
+:root[data-theme='dark'] {
+  --bg: #171e1a;
+  --surface: #202b24;
+  --ink: #eef3e9;
+  --muted: #b5c4b8;
+  --line: #435046;
+  --sage: #334637;
+  --accent: #aacfad;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1,
+h2,
+h3 {
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+}
+h2 {
+  font-size: 1.4rem;
+}
+p {
+  line-height: 1.55;
+  color: var(--muted);
+}
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #b77a28;
+  outline-offset: 3px;
+}
+button,
+.button,
+.secondary {
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  padding: 0.65rem 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  line-height: 1.3;
+}
+button:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+.button {
+  background: #264d3c;
+  color: #fff;
+  border-color: transparent;
+  font-weight: 650;
+}
+.secondary {
+  background: transparent;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: clamp(1rem, 3vw, 1.65rem);
+  margin: 0 0 1rem;
+}
+.form-card {
+  display: grid;
+  gap: 1rem;
+  max-width: 46rem;
+}
+.form-card p,
+.form-card h2 {
+  margin: 0;
+}
+label {
+  line-height: 1.45;
+}
+label:has(> input:not([type='checkbox']):not([type='radio'])),
+label:has(> select),
+label:has(> textarea),
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+input,
+select,
+textarea {
+  min-width: 0;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  padding: 0.65rem 0.75rem;
+  color: var(--ink);
+  background: var(--surface);
+}
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: var(--accent);
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.settings {
+  max-width: 48rem;
+}
+.settings pre {
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.sync-status,
+.update {
+  display: block;
+  background: var(--sage);
+  padding: 0.65rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.skip-link {
+  position: fixed;
+  top: -4rem;
+  z-index: 99;
+  background: var(--surface);
+  padding: 0.8rem;
+}
+.skip-link:focus {
+  top: 0.1rem;
+}
+
+:root {
+  --brand: #56ab83;
+  --ink: #18181b;
+  --muted: #52525b;
+  --line: #e4e4e7;
+}
+:root[data-theme='dark'] {
+  --ink: #fafafa;
+  --muted: #b9b9c0;
+  --line: #343438;
+}
+.flutter-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg);
+  padding-top: env(safe-area-inset-top);
+}
+.flutter-app > ion-content {
+  flex: 1;
+  min-height: 0;
+  --background: var(--bg);
+}
+.flutter-content,
+.flutter-top {
+  width: min(100%, 960px);
+  margin: 0 auto;
+}
+.flutter-content {
+  padding: 16px clamp(16px, 3vw, 28px) max(24px, env(safe-area-inset-bottom));
+  outline: none;
+}
+.flutter-top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 72px;
+  flex: none;
+  padding: 8px clamp(8px, 2vw, 20px);
+}
+.round-control,
+.avatar {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  flex: none;
+  border-radius: 50%;
+  text-decoration: none;
+}
+.round-control ion-icon {
+  color: var(--accent);
+  font-size: 28px;
+}
+.round-control small {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  color: white;
+  background: #b82330;
+  border-radius: 50px;
+  padding: 2px 4px;
+  font-size: 10px;
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  font-weight: 650;
+  color: var(--accent);
+  background: var(--sage);
+  overflow: hidden;
+}
+.avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.trip-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  border-radius: 999px;
+  padding: 0 18px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--line) 55%, var(--bg));
+}
+.trip-search:focus-within {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.trip-search input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.flutter-dock {
+  display: flex;
+  justify-content: center;
+  flex: none;
+  z-index: 2;
+  padding: 0 8px env(safe-area-inset-bottom);
+  background: var(--surface);
+  box-shadow: 0 -2px 8px #0000000a;
+}
+.flutter-dock a {
+  height: 72px;
+  flex: 1;
+  max-width: 310px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 550;
+  text-decoration: none;
+  color: var(--muted);
+}
+.flutter-dock ion-icon {
+  font-size: 22px;
+  padding: 5px 16px;
+  border-radius: 20px;
+}
+.flutter-dock .active {
+  color: var(--accent);
+}
+.flutter-dock .active ion-icon {
+  background: var(--sage);
+}
+.flutter-login,
+.status-screen {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(140deg, var(--sage), var(--bg) 45%);
+  padding: max(28px, env(safe-area-inset-top)) 24px
+    max(28px, env(safe-area-inset-bottom));
+}
+.login-identity {
+  margin: auto auto 0;
+}
+.login-identity img {
+  width: 100px;
+  height: 100px;
+  border-radius: 26px;
+}
+.login-identity h1 {
+  margin: 26px 0 8px;
+  font-size: 44px;
+  font-weight: 750;
+}
+.login-identity p {
+  line-height: 1.6;
+  font-size: 18px;
+}
+.login-controls {
+  width: min(100%, 420px);
+  margin: clamp(32px, 10vh, 96px) auto auto;
+}
+.login-controls > .button {
+  width: 100%;
+  min-height: 56px;
+  border-radius: 18px;
+  background: var(--accent);
+  color: var(--surface);
+}
+.login-controls fieldset {
+  border: 0;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.login-controls legend {
+  margin: 0 auto 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.login-controls fieldset button {
+  margin: 3px;
+}
+.status-screen {
+  justify-content: center;
+}
+.flutter-settings,
+.information {
+  max-width: 780px;
+  margin: auto;
+}
+.flutter-settings h1,
+.information h1 {
+  font-size: 1.65rem;
+}
+.flutter-settings h2 {
+  font-size: 1rem;
+  margin: 1.5rem 0 0.75rem;
+}
+.settings-group,
+.info-list,
+.identity-card {
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin-bottom: 1rem;
+}
+.settings-group > a,
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 15px 18px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+  text-align: start;
+}
+label.setting-row:has(> select) {
+  display: flex;
+}
+.setting-row select {
+  max-width: 55%;
+}
+.settings-group > * + * {
+  border-top: 1px solid var(--line);
+}
+.setting-row small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+}
+.settings-group > p {
+  margin: 0;
+  padding: 12px 18px;
+}
+.swatches {
+  border: 0;
+  margin: 0;
+  padding: 12px 18px;
+}
+.swatches legend {
+  padding-top: 12px;
+}
+.swatches button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 4px;
+  border-radius: 50%;
+  color: white;
+}
+.swatches button[aria-pressed='true'] {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.identity-card,
+.info-list {
+  padding: 20px;
+}
+.identity-card {
+  text-align: center;
+}
+.identity-card img {
+  width: 90px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.identity-card img.portrait {
+  border-radius: 50%;
+}
+.identity-card h2 {
+  margin: 10px 0 4px;
+}
+.info-list dt {
+  font-weight: 650;
+}
+.info-list dd {
+  margin: 4px 0 16px;
+  color: var(--muted);
+}
+.page-back {
+  display: inline-block;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+.changelog {
+  white-space: pre-line;
+}
+
+.trip-search {
+  position: relative;
+}
+.trip-search input {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 650;
+}
+.search-hint {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.search-hint > * {
+  grid-area: 1 / 1;
+}
+.search-hint b {
+  color: var(--accent);
+  font-size: 22px;
+  animation: search-brand 1.9s both;
+}
+.search-dots {
+  display: flex;
+  gap: 8px;
+  animation: search-dots 4s both;
+}
+.search-dots i {
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  background: var(--brand);
+  animation: search-wave 1.1s ease-in-out 1.9s;
+}
+.search-dots i:nth-child(2) {
+  animation-delay: 2.06s;
+}
+.search-dots i:nth-child(3) {
+  animation-delay: 2.22s;
+}
+.search-dots i:nth-child(4) {
+  animation-delay: 2.38s;
+}
+.search-prompt {
+  animation: search-prompt 4.8s both;
+}
+.search-hint.complete > :not(.search-prompt),
+.trip-search:focus-within .search-hint {
+  visibility: hidden;
+}
+.search-hint.complete .search-prompt {
+  animation: none;
+}
+@keyframes search-brand {
+  0%,
+  65% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.15);
+  }
+}
+@keyframes search-dots {
+  0%,
+  45%,
+  100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  50%,
+  83% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes search-wave {
+  30% {
+    transform: translateY(-5px);
+  }
+  70% {
+    transform: translateY(3px);
+  }
+}
+@keyframes search-prompt {
+  0%,
+  74% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .search-hint > :not(.search-prompt) {
+    display: none;
+  }
+  .search-prompt {
+    animation: none;
+  }
+}
