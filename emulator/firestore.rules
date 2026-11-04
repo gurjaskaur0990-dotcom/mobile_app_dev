@@ -1,0 +1,91 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Users — anyone authenticated can read, only own doc can write (except admin who can moderate and isSuspended protected)
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth.uid == userId && 
+        (!('isSuspended' in request.resource.data) || request.resource.data.isSuspended == false);
+      allow update: if (request.auth.uid == userId && 
+        request.resource.data.get('isSuspended', false) == resource.data.get('isSuspended', false)) ||
+        (request.auth != null && request.auth.token.email == 'officiallanshsharma@gmail.com');
+      
+      // Notification inbox — only the owning user can read/write/delete
+      match /notifications/{notificationId} {
+        allow read, write, delete: if request.auth.uid == userId;
+      }
+    }
+
+    
+    // Broadcasts — only admin can read, create, and delete
+    match /broadcasts/{broadcastId} {
+      allow read, create, delete: if request.auth != null && request.auth.token.email == 'officiallanshsharma@gmail.com';
+      allow update: if false;
+    }
+
+
+    // Config documents (e.g. system announcements)
+    match /config/{configId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.token.email == 'officiallanshsharma@gmail.com';
+    }
+
+    // Feedback Portal submissions
+    match /feedback/{feedbackId} {
+      allow create: if request.auth != null;
+      allow read, delete: if request.auth != null && (
+        (resource != null && resource.data.userId == request.auth.uid) ||
+        request.auth.token.email == 'officiallanshsharma@gmail.com'
+      );
+      allow update: if request.auth != null && (
+        (resource != null && resource.data.userId == request.auth.uid && request.resource.data.userId == request.auth.uid && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['status', 'adminNotes'])) ||
+        request.auth.token.email == 'officiallanshsharma@gmail.com'
+      );
+    }
+    
+    // Trips — only members can read/write, anyone authenticated can create
+    match /trips/{tripId} {
+      allow create: if request.auth != null;
+      allow read: if request.auth.uid in resource.data.memberUids || 
+                  ('pendingMemberUids' in resource.data && request.auth.uid in resource.data.pendingMemberUids);
+      allow delete: if request.auth.uid in resource.data.memberUids;
+      allow update: if (request.auth.uid in resource.data.memberUids && (
+        resource.data.createdBy == request.auth.uid ||
+        (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['hasBudget', 'allowEditing']))
+      )) || (
+        'pendingMemberUids' in resource.data &&
+        request.auth.uid in resource.data.pendingMemberUids &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+          'name', 'createdBy', 'createdAt', 'totalSpent', 'totalBudget',
+          'isArchived', 'isDeleted', 'hasBudget', 'allowEditing',
+          'archivedAt', 'deletedAt'
+        ])
+      );
+      
+      // Expenses — only trip members can read/write
+      match /expenses/{expenseId} {
+        allow read: if request.auth.uid in get(/databases/$(database)/documents/trips/$(tripId)).data.memberUids;
+        allow create: if request.auth.uid in get(/databases/$(database)/documents/trips/$(tripId)).data.memberUids;
+        allow delete: if request.auth.uid in get(/databases/$(database)/documents/trips/$(tripId)).data.memberUids &&
+          get(/databases/$(database)/documents/trips/$(tripId)).data.get('allowEditing', true) != false;
+        allow update: if request.auth.uid in get(/databases/$(database)/documents/trips/$(tripId)).data.memberUids && 
+          get(/databases/$(database)/documents/trips/$(tripId)).data.get('allowEditing', true) != false && (
+            resource.data.createdBy == request.auth.uid || 
+            get(/databases/$(database)/documents/trips/$(tripId)).data.createdBy == request.auth.uid ||
+            // Allow soft-delete/restore operations for other members
+            (request.resource.data.title == resource.data.title &&
+             request.resource.data.amount == resource.data.amount &&
+             request.resource.data.paidBy == resource.data.paidBy &&
+             request.resource.data.sharedWith == resource.data.sharedWith)
+          );
+      }
+      
+      // Budget Contributions — only trip members can read/write
+      match /contributions/{contributionId} {
+        allow read, write: if request.auth.uid in 
+          get(/databases/$(database)/documents/trips/$(tripId)).data.memberUids;
+      }
+    }
+  }
+}
