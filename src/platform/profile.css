@@ -1,0 +1,52 @@
+.profile-page {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+.identity-panel {
+  text-align: center;
+}
+.identity-panel h2 {
+  margin: 0.9rem 0 0.4rem;
+}
+.identity-panel p {
+  margin: 0.4rem 0;
+}
+.identity-photo,
+.identity-initial {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.identity-initial {
+  display: inline-grid;
+  place-items: center;
+  background: var(--sage, var(--ion-color-primary-tint));
+  color: var(--ink);
+  font-size: 2.5rem;
+}
+.edit-field {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.25rem 0.55rem;
+}
+.profile-menu {
+  display: grid;
+}
+.profile-menu > a,
+.profile-menu > label,
+.profile-menu > button {
+  text-align: left;
+  padding: 0.85rem 0.25rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.profile-menu > :not(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
+.profile-menu small,
+.member-contact {
+  display: block;
+  color: var(--muted);
+}
