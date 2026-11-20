@@ -1,38 +1,123 @@
-# SplitTrip ✈️💸
+<div align="center">
 
-A modern travel expense tracker and group bill-splitting app built with **React**, **Ionic**, and **Firebase**, packaged for Android with **Capacitor**.
+<a href="https://splittrip.ansh.one">
+  <img src="assets/LOGO.png" width="120" alt="SplitTrip Logo" />
+</a>
 
-SplitTrip makes traveling with friends stress-free by handling all the group math. Whether you're splitting hotel stays, cab rides, food, or group activities, SplitTrip tracks who paid, calculates the split, and minimizes the transactions needed so everyone settles up easily.
+<h1>SplitTrip</h1>
 
-Developed as a semester project for our **Mobile Application Development** course.
+<p><strong>Split travel expenses. Settle debts. Stay in sync.</strong></p>
+
+<p>
+  <a href="https://splittrip.ansh.one">
+    <img src="https://img.shields.io/badge/🌐%20Try%20it%20Live-splittrip.ansh.one-56AB83?style=for-the-badge" alt="Live Web App" />
+  </a>
+  &nbsp;
+  <a href="../../releases/latest">
+    <img src="https://img.shields.io/badge/📦%20Download-Latest%20APK-02569B?style=for-the-badge" alt="Download APK" />
+  </a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20PWA-02569B?style=flat-square&logo=android&logoColor=white" alt="Platform" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Free-No%20Ads-56AB83?style=flat-square" alt="Free" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Real--time-Firebase%20Sync-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/PWA-Installable-8A2BE2?style=flat-square&logo=pwa&logoColor=white" alt="PWA" />
+</p>
+
+</div>
 
 ---
 
-### 📲 How to Use SplitTrip
+<div align="center">
 
-- 🍏 **For iOS Users (Web PWA)**: Open **[splittrip.ansh.one](https://splittrip.ansh.one)** in Safari $\rightarrow$ tap **Share** $\rightarrow$ select **"Add to Home Screen"** for an installable, standalone app experience with full offline support.
-- 🤖 **For Android Users (Native APK Only)**: Download and install the native Android APK package. *(Android web visits automatically redirect to the product site to download the APK, as the native build provides a significantly better mobile experience with native Google Credential Manager, system dynamic colors, and notifications).*
+### No more IOUs. No more awkward "you owe me" conversations.
+SplitTrip automatically figures out who owes who — and the smartest way to settle up.
+
+</div>
 
 ---
 
-## ✨ Features
+## Table of Contents
 
-- 👥 **Group Trips & Members**: Create trips and invite friends with invite codes or shareable links.
-- 💰 **Smart Expense Splitting**: Add expenses in rupees (₹), pick who paid, and split equally or customize shares among trip members.
-- ⚖️ **Automatic Debt Settlement**: Built-in debt simplification calculates who owes whom with the minimum number of payments—no awkward mental math.
-- 📱 **Platform-Optimized Experience**:
-  - **iOS**: Lightweight Web PWA at [splittrip.ansh.one](https://splittrip.ansh.one) with home-screen install and offline caching.
-  - **Android**: Native APK built with Capacitor for performance, dynamic theming, and push notifications.
-- 🎨 **Clean & Modern UI**: Built with Ionic components and Material You dynamic color styling with full Dark Mode support.
-- 📴 **Offline-Friendly**: Client caching and local storage ensure you can still check your balances and view trips even with spotty travel internet.
-- 🔒 **Firebase Authentication & Firestore**: Secure Google Sign-In with real-time Firestore database synchronization.
+- [Screenshots](#-screenshots)
+- [Features](#-what-splittrip-does)
+- [Tech Stack](#-tech-stack)
+- [How It Works](#️-how-it-works)
+- [Privacy & Security](#-privacy--security)
+- [Contributors](#-contributors)
+- [Changelog](#-changelog)
+
+---
+
+## 📱 Screenshots
+
+> Click any screenshot to view it full size.
+
+### Home & Group Trips
+
+<div align="center">
+
+| Home | Members | Expenses |
+|:---:|:---:|:---:|
+| <a href="assets/home1.png"><img src="assets/home1.png" width="210" alt="Home Screen" /></a> | <a href="assets/Members.png"><img src="assets/Members.png" width="210" alt="Members" /></a> | <a href="assets/expenses.png"><img src="assets/expenses.png" width="210" alt="Expenses" /></a> |
+
+</div>
+
+### Finance, Budget & Analytics
+
+<div align="center">
+
+| Summary & Balances | Analytics | Budget Tracker |
+|:---:|:---:|:---:|
+| <a href="assets/summary.png"><img src="assets/summary.png" width="210" alt="Balance Summary" /></a> | <a href="assets/Analytics.png"><img src="assets/Analytics.png" width="210" alt="Analytics" /></a> | <a href="assets/Budget.png"><img src="assets/Budget.png" width="210" alt="Budget" /></a> |
+
+</div>
+
+### Profile & More
+
+<div align="center">
+
+| Profile | Recently Deleted | About |
+|:---:|:---:|:---:|
+| <a href="assets/profile.png"><img src="assets/profile.png" width="210" alt="Profile" /></a> | <a href="assets/Recently-deleted-expenses.png"><img src="assets/Recently-deleted-expenses.png" width="210" alt="Recently Deleted" /></a> | <a href="assets/About.png"><img src="assets/About.png" width="210" alt="About" /></a> |
+
+</div>
+
+---
+
+## ✨ What SplitTrip Does
+
+### 💸 Track Every Expense Instantly
+Add an expense in seconds — who paid, how much, and who it's split between. SplitTrip does the math automatically and updates everyone's balance in real time.
+
+### 🧠 Smart Auto-Settlement
+Forget the spreadsheet. SplitTrip calculates the **minimum number of payments** needed to settle all debts in the group — so instead of 10 confusing transfers, you might need just 3.
+
+### 📊 See the Full Picture
+Get a clear breakdown of who owes what, how spending is distributed across the group, and where your money is going — all in one glance.
+
+### 🎯 Set & Track a Budget
+Define a trip budget, assign contributions per member, and watch the tracker fill up as expenses are added. Over-budget alerts keep the group on track.
+
+### 🔄 Real-Time Sync
+Every expense, every settlement, every change — synced instantly across all devices the moment it happens. No refreshing, no waiting.
+
+### 🗑️ Soft Delete with Undo
+Accidentally deleted an expense? SplitTrip moves it to **Recently Deleted** where you can restore it any time. Nothing is gone forever unless you choose it to be.
+
+### 🔔 Push Notifications
+Get notified when a trip member adds an expense or settles a debt — even when the app is closed.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19, TypeScript, Ionic 9, React Router 6
-- **Mobile & Packaging**: Capacitor 7 (Android)
+- **Mobile Packaging**: Capacitor 7 (Android)
 - **Styling**: Ionic CSS Variables, Material Dynamic Theme
 - **Backend & Database**: Firebase (Firestore, Authentication, Cloud Functions)
 - **Build Tool**: Vite
@@ -40,79 +125,26 @@ Developed as a semester project for our **Mobile Application Development** cours
 
 ---
 
-## 🚀 Getting Started
+## 🗺️ How It Works
 
-### Prerequisites
-
-- **Node.js** (v20+ or v22 LTS recommended)
-- **npm** (included with Node.js)
-- *(Optional for Android)*: JDK 21 and Android Studio / Android SDK
-
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/gurjaskaur0990-dotcom/mobile_app_dev.git
-   cd mobile_app_dev
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Configure Environment Variables:**
-   Copy the example environment file and add your Firebase credentials:
-   ```bash
-   cp .env.example .env
-   ```
-
-4. **Start the Development Server:**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:5173](http://localhost:5173) in your browser!
-
-To build and preview the production bundle locally:
-```bash
-npm run start
-```
-Then visit [http://localhost:4173](http://localhost:4173).
+| Step | Action |
+|:---:|:---|
+| **1** | Create a trip and give it a name & budget |
+| **2** | Invite friends — they join instantly with your trip code |
+| **3** | Log expenses — who paid, how much, who it's split between |
+| **4** | Check live balances — see exactly who owes who |
+| **5** | Settle up — record payments to clear all debts |
 
 ---
 
-## 🧪 Testing
+## 🔐 Privacy & Security
 
-Automated unit, emulator, and browser end-to-end tests:
-
-```bash
-# Run unit tests with Vitest
-npm test
-
-# Run Firebase emulator integration tests
-npm run test:emulator
-
-# Run browser tests with Playwright
-npm run test:browser
-```
-
----
-
-## 📱 Android App (Capacitor)
-
-To build the Android application:
-
-1. Build the web assets:
-   ```bash
-   npm run build:android
-   ```
-2. Build with Gradle or open in Android Studio:
-   ```bash
-   cd android
-   ./gradlew assembleDebug
-   ```
-The output APK will be generated at `android/app/build/outputs/apk/debug/app-debug.apk`.  
-*(For more details on Android setup and signing, see [android/README.md](android/README.md))*
+| | |
+|:---|:---|
+| 🔑 **Authentication** | Google Sign-In only — no passwords ever stored |
+| 🗄️ **Data Storage** | Secured in Firebase Firestore with strict access rules |
+| 🔒 **Access Control** | Only trip members can view or modify trip data |
+| 🚫 **No Tracking** | Zero ads, zero analytics, zero third-party data sharing |
 
 ---
 
@@ -126,6 +158,25 @@ This project was built collaboratively by our team:
 
 ---
 
-## 📄 License
+## 📋 Changelog
 
-This project is created for educational and academic coursework purposes.
+### [v1.0.0](../../releases/tag/v1.0.0) — Initial Release
+
+- ✅ Core expense tracking with real-time Firebase sync
+- ✅ Smart auto-settlement engine (minimum transactions)
+- ✅ Budget tracking with per-member contributions
+- ✅ Google Sign-In authentication
+- ✅ Push notifications via Firebase Cloud Messaging
+- ✅ Archive & Recently Deleted screens with restore
+- ✅ Material 3 design with full dark mode support
+- ✅ Progressive Web App (PWA) with offline caching & auto-updates
+
+---
+
+<div align="center">
+
+**Built with [React](https://react.dev), [Ionic](https://ionicframework.com), [Capacitor](https://capacitorjs.com) & [Firebase](https://firebase.google.com)**
+
+Made with ❤️ by **Ansh Sharma**, **Gurjas Kaur** & **Saurabh Vishwakarma**
+
+</div>
