@@ -8,10 +8,10 @@ Developed as a semester project for our **Mobile Application Development** cours
 
 ---
 
-### 📲 Quick Access
+### 📲 How to Use SplitTrip
 
-- 🍏 **For iOS Users (Web PWA)**: Open **[splittrip.ansh.one](https://splittrip.ansh.one)** in Safari $\rightarrow$ tap **Share** $\rightarrow$ select **"Add to Home Screen"** for an installable, standalone app experience.
-- 🤖 **For Android Users (Native APK)**: Download and install the native Android APK package (built with Capacitor) or access the web app at **[splittrip.ansh.one](https://splittrip.ansh.one)**.
+- 🍏 **For iOS Users (Web PWA)**: Open **[splittrip.ansh.one](https://splittrip.ansh.one)** in Safari $\rightarrow$ tap **Share** $\rightarrow$ select **"Add to Home Screen"** for an installable, standalone app experience with full offline support.
+- 🤖 **For Android Users (Native APK Only)**: Download and install the native Android APK package. *(Android web visits automatically redirect to the product site to download the APK, as the native build provides a significantly better mobile experience with native Google Credential Manager, system dynamic colors, and notifications).*
 
 ---
 
@@ -20,9 +20,9 @@ Developed as a semester project for our **Mobile Application Development** cours
 - 👥 **Group Trips & Members**: Create trips and invite friends with invite codes or shareable links.
 - 💰 **Smart Expense Splitting**: Add expenses in rupees (₹), pick who paid, and split equally or customize shares among trip members.
 - ⚖️ **Automatic Debt Settlement**: Built-in debt simplification calculates who owes whom with the minimum number of payments—no awkward mental math.
-- 📱 **Cross-Platform Access**:
-  - **iOS**: Web PWA at [splittrip.ansh.one](https://splittrip.ansh.one) with home screen installation and offline caching.
-  - **Android**: Native APK built via Capacitor, plus full browser PWA support.
+- 📱 **Platform-Optimized Experience**:
+  - **iOS**: Lightweight Web PWA at [splittrip.ansh.one](https://splittrip.ansh.one) with home-screen install and offline caching.
+  - **Android**: Native APK built with Capacitor for performance, dynamic theming, and push notifications.
 - 🎨 **Clean & Modern UI**: Built with Ionic components and Material You dynamic color styling with full Dark Mode support.
 - 📴 **Offline-Friendly**: Client caching and local storage ensure you can still check your balances and view trips even with spotty travel internet.
 - 🔒 **Firebase Authentication & Firestore**: Secure Google Sign-In with real-time Firestore database synchronization.
