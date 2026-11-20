@@ -10,11 +10,7 @@
 
 <p>
   <a href="https://splittrip.ansh.one">
-    <img src="https://img.shields.io/badge/🌐%20Try%20it%20Live-splittrip.ansh.one-56AB83?style=for-the-badge" alt="Live Web App" />
-  </a>
-  &nbsp;
-  <a href="../../releases/latest">
-    <img src="https://img.shields.io/badge/📦%20Download-Latest%20APK-02569B?style=for-the-badge" alt="Download APK" />
+    <img src="https://img.shields.io/badge/🌐%20Live%20Web%20App-splittrip.ansh.one-56AB83?style=for-the-badge" alt="Live Web App" />
   </a>
 </p>
 
