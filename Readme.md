@@ -1,45 +1,126 @@
-# SplitTrip for Ionic React
+# SplitTrip ✈️💸
 
-This is a second client for the existing SplitTrip Flutter app. It includes an installable web app and a Capacitor Android app. The React source, Android package, build outputs and local test fixtures all live in this repository.
+> 🌐 **Live Web App**: [splittrip.ansh.one](https://splittrip.ansh.one)
 
-## Run with your existing SplitTrip account
+A modern travel expense tracker and group bill-splitting app built with **React**, **Ionic**, and **Firebase**, packaged for Android with **Capacitor**.
 
-Install Node.js 22.12 or newer and npm. From this directory run
+SplitTrip makes traveling with friends stress-free by handling all the group math. Whether you're splitting hotel stays, cab rides, food, or group activities, SplitTrip tracks who paid, calculates the split, and minimizes the transactions needed so everyone settles up easily.
 
-```sh
-npm ci
-npm start
+Developed as a semester project for our **Mobile Application Development** course.
+
+---
+
+## ✨ Features
+
+- 👥 **Group Trips & Members**: Create trips and invite friends with invite codes or shareable links.
+- 💰 **Smart Expense Splitting**: Add expenses in rupees (₹), pick who paid, and split equally or customize shares among trip members.
+- ⚖️ **Automatic Debt Settlement**: Built-in debt simplification calculates who owes whom with the minimum number of payments—no awkward mental math.
+- 📱 **Cross-Platform (Web & Mobile)**:
+  - Responsive Web App / PWA: Live at [splittrip.ansh.one](https://splittrip.ansh.one) (installable on iOS, Android & Desktop).
+  - Native Android app powered by Capacitor.
+- 🎨 **Clean & Modern UI**: Built with Ionic components and Material You dynamic color styling with full Dark Mode support.
+- 📴 **Offline-Friendly**: Client caching and local storage ensure you can still check your balances and view trips even with spotty travel internet.
+- 🔒 **Firebase Authentication & Firestore**: Secure Google Sign-In with real-time Firestore database synchronization.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 19, TypeScript, Ionic 9, React Router 6
+- **Mobile & Packaging**: Capacitor 7 (Android)
+- **Styling**: Ionic CSS Variables, Material Dynamic Theme
+- **Backend & Database**: Firebase (Firestore, Authentication, Cloud Functions)
+- **Build Tool**: Vite
+- **Testing**: Vitest (Unit Tests), Playwright (E2E & Performance Tests)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** (v20+ or v22 LTS recommended)
+- **npm** (included with Node.js)
+- *(Optional for Android)*: JDK 21 and Android Studio / Android SDK
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/gurjaskaur0990-dotcom/mobile_app_dev.git
+   cd mobile_app_dev
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Copy the example environment file and add your Firebase credentials:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) in your browser!
+
+To build and preview the production bundle locally:
+```bash
+npm run start
 ```
+Then visit [http://localhost:4173](http://localhost:4173).
 
-Open [SplitTrip](http://localhost:4173) and choose **Sign in with Google**. Use the Google account you use in Flutter. The web app reads and writes that account’s trips, expenses and memberships in Firebase project `splittrip-1879b`. The project authorizes the hostname `localhost` for Google sign-in. `npm run local` starts the same app. `npm run dev` also connects to the real backend.
+---
 
-## Connect to the existing backend
+## 🧪 Testing
 
-The release build uses the public web registration from Flutter’s Firebase configuration for project `splittrip-1879b`. Signing in through the same Google account uses its existing Firebase user ID. Trips, profiles and transactions use the original collections directly. The React client requires no data migration or deployment of new Functions. Hosting has a separate named target, `react`, so the project owner can choose a separate web origin when ready.
+Automated unit, emulator, and browser end-to-end tests:
 
-| Feature | Flutter-compatible behavior |
-| --- | --- |
-| Trip and ledger | React reads and writes the same trip, expense and contribution documents. Amounts are stored in rupees. Existing fractional splits, Firebase timestamps, settlement records and membership maps are supported. |
-| Balances and budget | The summary follows the Flutter pool calculation. In the seeded example, Asha pays ₹120 and Bharat contributes ₹60. Asha is owed ₹60, Bharat settles at ₹0 and Charu owes ₹60. A repayment updates the personal balances while total spending stays ₹120. |
-| Collaboration | The client uses the original invitation fields, inbox, broadcast and feedback collections. The admin account, suspension flag, notification recipients, and single FCM token per user follow the existing app and rules. |
-| Device and navigation | Flutter web hash links and direct trip links work. The web app caches visited pages and queued ledger changes per signed-in user. Android includes native Google authentication, system accent colors, notifications and a separate React APK update channel. |
-
-Use `npm run build` to create the release web bundle in `dist/`. Before using real Google sign-in on a new web origin, authorize that origin in the existing Firebase project. For web push, supply the existing project's public Web Push certificate in `VITE_FIREBASE_VAPID_KEY`. Real device delivery needs Firebase credentials and network access. Android uses its own package and signing identity. [Android build and device setup](android/README.md)
-
-## Verify
-
-```sh
+```bash
+# Run unit tests with Vitest
 npm test
+
+# Run Firebase emulator integration tests
 npm run test:emulator
-```
 
-Install Java 21 and run `npm ci --prefix functions` for emulator tests. The emulator test starts a fresh suite and needs free emulator ports. The unit and integration tests cover the source app’s formulas, original document shapes, concurrent updates, invitations, notification triggers and recovery. To run browser checks, start the isolated test app with `npm run demo` in another terminal, then run
-
-```sh
-npx playwright install chromium firefox webkit
+# Run browser tests with Playwright
 npm run test:browser
-npm run test:engines
-npm run test:perf
 ```
 
-Set `SPLITTRIP_SYSTEM_CHROME=1` to use an installed Google Chrome for the Chromium and timing checks. The test app serves its own bundle from `dist-emulator/` on port 4175. Browser tests write fixtures to the local emulator. The timing suite measures two browser sessions with 20 trips and 500 expenses and saves measurements in `test-results/performance/`. Real Firebase sign-in, production latency, device delivery and a signed upgrade from a published React release require separate release testing.
+---
+
+## 📱 Android App (Capacitor)
+
+To build the Android application:
+
+1. Build the web assets:
+   ```bash
+   npm run build:android
+   ```
+2. Build with Gradle or open in Android Studio:
+   ```bash
+   cd android
+   ./gradlew assembleDebug
+   ```
+The output APK will be generated at `android/app/build/outputs/apk/debug/app-debug.apk`.  
+*(For more details on Android setup and signing, see [android/README.md](android/README.md))*
+
+---
+
+## 👥 Contributors
+
+This project was built collaboratively by our team:
+
+- **[Ansh Sharma](https://github.com/07-Ansh)** — Platform architecture, Firebase integration, and test suite.
+- **[Gurjas Kaur](https://github.com/gurjaskaur0990-dotcom)** — UI/UX design, Ionic components, and PWA configuration.
+- **[Saurabh Vishwakarma](https://github.com/SaurabhVishwakarma22)** — Ledger algorithms, debt settlement calculations, and emulator fixtures.
+
+---
+
+## 📄 License
+
+This project is created for educational and academic coursework purposes.
